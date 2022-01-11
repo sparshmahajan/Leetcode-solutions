@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool isPowerOfThree(int n) {
-        return n > 0 and 1162261467 % n == 0;
+        int t = 1162261467;
+        return n > 0 and t % n == 0;
     }
 };
