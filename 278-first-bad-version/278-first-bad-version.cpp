@@ -13,8 +13,10 @@ public:
         if(isBadVersion(mid)==true){
             if(isBadVersion(mid-1)==false) 
                 return mid;
-            else return recursiveSearch(start,mid-1);
+            else 
+                return recursiveSearch(start,mid-1);
         }
-        else return recursiveSearch(mid+1,end);
+        else 
+            return recursiveSearch(mid+1,end);
     }
 };
