@@ -22,7 +22,8 @@ public:
             }
             i++;
         }
-        if(j<n and count==0) ans.push_back(to_string(nums[j]));
+        if(j<n and count==0) 
+            ans.push_back(to_string(nums[j]));
         else{
            ans.push_back(to_string(nums[j]) + "->" + to_string(nums[j]+count)); 
         }
