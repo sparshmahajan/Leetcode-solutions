@@ -20,10 +20,8 @@ public:
                 return;
             }
             s += to_string(root->val) + "->";
-            if(root->left)
-                preorder(root->left,s);
-            if(root->right) 
-                preorder(root->right,s);
+            if(root->left)  preorder(root->left,s);
+            if(root->right) preorder(root->right,s);
         }
     }
     
