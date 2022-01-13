@@ -4,8 +4,7 @@ bool mycompare (vector <int> &a , vector <int> &b){
 class Solution {
 public:
     int findMinArrowShots(vector<vector<int>>& points) {
-        if(points.size()==0) 
-            return 0;
+        if(points.size()==0) return 0;
         sort(points.begin(),points.end(),mycompare);
         int arrows =1;
         int last = points[0][1];
