@@ -5,7 +5,6 @@ public:
         for(i;i*i <= num;i++){
             if(i*i == num) return true;
         }
-       // if(i*i == num) return true;
         return false;
     }
 };
