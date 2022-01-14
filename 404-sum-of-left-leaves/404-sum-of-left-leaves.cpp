@@ -13,7 +13,6 @@ class Solution {
 public:
     int sum =0;
     int sumOfLeftLeaves(TreeNode* root) {
-        //if (root == NULL) return sum;
         if(root){
             sumOfLeftLeaves(root->left);
             if(root->left and root->left->left==NULL and root->left->right==NULL){
