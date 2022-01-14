@@ -15,9 +15,8 @@ public:
     int sumOfLeftLeaves(TreeNode* root) {
         if(root){
             sumOfLeftLeaves(root->left);
-            if(root->left and root->left->left==NULL and root->left->right==NULL){
+            if(root->left and root->left->left==NULL and root->left->right==NULL)
                 sum+=root->left->val;
-            }
             sumOfLeftLeaves(root->right);
         }
         return sum;
