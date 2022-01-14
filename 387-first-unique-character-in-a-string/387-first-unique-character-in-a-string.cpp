@@ -6,7 +6,6 @@ public:
         for(i=0;i<s.length();i++){
             v[s[i]-97]++;
         }
-        i=-1;
         for(i=0;i<s.length();i++){
             if(v[s[i]-97]==1) return i;
         }
