@@ -20,8 +20,7 @@ public:
                 }      
             }
         }
-        if(dp[n][amount]==INT_MAX-100)
-            return -1;
+        if(dp[n][amount]==INT_MAX-100) return -1;
         return dp[n][amount];
     }
 };
