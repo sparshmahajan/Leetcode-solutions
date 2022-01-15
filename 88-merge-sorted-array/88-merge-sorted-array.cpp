@@ -9,7 +9,5 @@ public:
             else nums1[t--]=nums1[i--];
         }
         while(j>=0) nums1[t--]=nums2[j--];
-        return;
-        
     }
 };
