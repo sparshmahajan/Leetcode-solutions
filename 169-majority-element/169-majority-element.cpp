@@ -7,6 +7,7 @@ public:
 			mp[i]++;
 			if(mp[i] > n/2)
                 return i;
-		} return -1;
+		} 
+        return -1;
     }
 };
