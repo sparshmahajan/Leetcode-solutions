@@ -1,18 +1,13 @@
 class Solution {
 public:
-    int removeDuplicates(vector<int>& nums) {
-        int k=0,i,n=nums.size();
+    int removeDuplicates(vector<int>& nums){
+        if(nums.size()==0) return 0;
+        int count=1,i,n=nums.size();
         for(i=1;i<n;i++){
-            if(nums[i] == nums[i-1]){
-                nums[i-1]=101;
-                
+            if(nums[i-1] != nums[i]){
+                nums[count++] = nums[i];
             }
         }
-        sort(nums.begin(),nums.end());
-        for(int c : nums){
-            if(c==101) return k;
-            k++;
-        }
-        return k;
+        return count;
     }
 };
