@@ -6,8 +6,7 @@ public:
             if(seats[i]==1){
                 if(l == -1)
                     maxDist = i;
-                else 
-                    maxDist = max(maxDist,(i-l)/2);
+                else maxDist = max(maxDist,(i-l)/2);
                 l = i;
             }
         }
