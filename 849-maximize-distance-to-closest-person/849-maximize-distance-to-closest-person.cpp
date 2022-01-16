@@ -11,8 +11,7 @@ public:
                 l = i;
             }
         }
-        if(seats[n-1] == 0)
-            maxDist = max(maxDist,(n-1-l));
+        if(seats[n-1] == 0) maxDist = max(maxDist,(n-1-l));
         return maxDist;
     }
 };
