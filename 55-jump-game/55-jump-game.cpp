@@ -5,8 +5,10 @@ public:
         int maxJump = 0;
         for(int i=0;i<n;i++){
             maxJump = max(maxJump,i+nums[i]);
-            if(maxJump>=(n-1)) return true;
-            if(maxJump <= i) return false;
+            if(maxJump>=(n-1)) 
+                return true;
+            if(maxJump <= i) 
+                return false;
         }
         return false;
     }
