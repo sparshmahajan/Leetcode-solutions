@@ -16,8 +16,7 @@ public:
                 j--;
             }
             else{
-                if(isPalindrome(i+1,j,s) or isPalindrome(i,j-1,s))
-                    return true;
+                if(isPalindrome(i+1,j,s) or isPalindrome(i,j-1,s)) return true;
                 return false;
             }
         }
