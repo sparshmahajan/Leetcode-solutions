@@ -2,7 +2,8 @@ class Solution {
 public:
     bool isPalindrome(int i,int j,string s){
         while(i<j){
-           if(s[i++]!=s[j--]) return false; 
+           if(s[i++]!=s[j--]) 
+               return false; 
         }
         return true;
     }
