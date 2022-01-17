@@ -3,7 +3,8 @@ public:
     bool wordPattern(string pattern, string s) {
         int words = 0,i=0;
         while(s[i]!=0){
-            if(s[i]==' ') words++;
+            if(s[i]==' ') 
+                words++;
             i++;
         }
         if(words != pattern.length()-1) return false;
