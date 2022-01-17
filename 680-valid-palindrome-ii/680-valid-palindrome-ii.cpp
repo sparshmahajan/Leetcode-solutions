@@ -23,10 +23,8 @@ public:
                 count2++;
             }
         }
-        if(count1==1 or count2==1)
-            return true;
-        if(count1==0 or count2==0) 
-            return true;
+        if(count1==1 or count2==1) return true;
+        if(count1==0 or count2==0) return true;
         return false;
     }
 };
