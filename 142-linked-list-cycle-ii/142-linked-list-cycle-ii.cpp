@@ -4,18 +4,33 @@
  *     int val;
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+ * }*/
+
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        vector <ListNode *> v;
-        while(head!=NULL){
-            if(find(v.begin(),v.end(),head)!=v.end()) return head;
-            else
-               v.push_back(head);
-            head = head->next;
+        if(!head){
+            return nullptr;
         }
-        return NULL;
+        if(!head->next){
+            return NULL;
+        }
+        ListNode* fast = head->next->next;
+        ListNode* slow = head->next;
+        
+        
+        while(fast && fast->next && fast != slow){
+            fast = fast -> next -> next;
+            slow = slow -> next;
+        }
+        if(!fast || !fast->next){
+            return nullptr;
+        }
+        fast = head;
+        while(fast != slow){
+            fast = fast->next;
+            slow = slow->next;
+        }
+        return slow;
     }
 };
