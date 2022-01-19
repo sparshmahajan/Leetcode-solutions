@@ -17,8 +17,7 @@ public:
             fast = fast->next->next;
             slow = slow->next;
         }
-        if(!fast or !fast->next)
-            return false;
+        if(!fast or !fast->next) return false;
         return true;
     }
 };
