@@ -11,9 +11,7 @@ public:
                 current = 0;
             }
         }
-        if(total>=0){
-            return start;
-        }
+        if(total>=0) return start;
         return -1;
     }
 };
