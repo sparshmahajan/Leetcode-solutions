@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool detectCapitalUse(string word) {
-        int all = 0,first=0,flag = 1;
+        int all = 0,first=0,flag =1;
         if(word[0]>='A' and word[0]<='Z'){
             first=1;
         }
