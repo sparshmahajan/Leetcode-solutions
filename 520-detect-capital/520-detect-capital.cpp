@@ -12,7 +12,7 @@ public:
              }
         }
         else if(first and (word[1]>='a' and word[1]<='z')){
-            for(int i=1;i<word.length();i++){
+            for(int i=2;i<word.length();i++){
             if(!(word[i]>='a' and word[i]<='z'))
                 flag = 0;   
           }  
