@@ -9,9 +9,7 @@ public:
         }
         if(i==0) return 0;
         for(i;i<arr.size()-1;i++){
-            if(arr[i]<=arr[i+1]) {
-                return res=0;
-            }
+            if(arr[i]<=arr[i+1]) return 0;
             else res = 1;
         }
         return res;
