@@ -35,7 +35,6 @@ public:
                 res.push_back(ans[i]);
                 i++;  
             }
-
         }
         while(i<x){
             res.push_back(ans[i]);
