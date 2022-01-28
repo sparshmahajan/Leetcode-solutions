@@ -3,15 +3,16 @@ class WordDictionary {
     
     bool isEqual(string str1,string str2){
         for(int i=0;i<str2.length();i++){
-            if(str2[i]=='.') continue;
-            if(str1[i] != str2[i]) return false;
+            if(str2[i]=='.') 
+                continue;
+            if(str1[i] != str2[i]) 
+                return false;
         }
         return true;
     }
     
 public:
-    WordDictionary() {
-    }
+    WordDictionary() {}
     
     void addWord(string word) {
         words[word.length()].push_back(word);
