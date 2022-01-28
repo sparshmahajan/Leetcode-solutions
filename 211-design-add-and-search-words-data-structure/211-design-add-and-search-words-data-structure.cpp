@@ -13,11 +13,9 @@ class WordDictionary {
     
 public:
     WordDictionary() {}
-    
     void addWord(string word) {
         words[word.length()].push_back(word);
     }
-    
     bool search(string word) {
         for(auto &&s : words[word.length()])
             if(isEqual(s,word)) return true;
