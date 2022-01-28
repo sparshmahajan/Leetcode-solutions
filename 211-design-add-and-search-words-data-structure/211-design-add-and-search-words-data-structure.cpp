@@ -17,7 +17,7 @@ public:
         words[word.length()].push_back(word);
     }
     bool search(string word) {
-        for(auto &&s : words[word.length()])
+        for(auto s : words[word.length()])
             if(isEqual(s,word)) return true;
         return false;
     }
