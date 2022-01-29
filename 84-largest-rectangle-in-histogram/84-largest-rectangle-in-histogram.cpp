@@ -18,8 +18,7 @@ public:
             }
         }
         
-        while(!stk.empty()) 
-            stk.pop();
+        while(!stk.empty())  stk.pop();
         
          for(int i=n-1;i>=0;i--){
             if(stk.empty()){
