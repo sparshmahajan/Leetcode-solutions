@@ -4,7 +4,6 @@ public:
         int n = heights.size(),i;
         vector <int> left(n),right(n);
         stack <int> stk;
-        
         for(i=0;i<n;i++){
             if(stk.empty()){
                 left[i]=0;
@@ -17,7 +16,6 @@ public:
                 stk.push(i);
             }
         }
-        
         while(!stk.empty())
             stk.pop();
          for(i=n-1;i>=0;i--){
