@@ -20,7 +20,6 @@ public:
         
         while(!stk.empty())
             stk.pop();
-        
          for(i=n-1;i>=0;i--){
             if(stk.empty()){
                 right[i]=n-1;
