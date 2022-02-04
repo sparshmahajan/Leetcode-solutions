@@ -6,8 +6,10 @@ public:
         
         for(int i=0; i<nums.size(); i++){
             sum += nums[i]==1 ? 1 : -1;
-            if(seen.count(sum)) maxLen = max(maxLen, i-seen[sum]);
-            else seen[sum] = i;
+            if(seen.count(sum)) 
+                maxLen = max(maxLen, i-seen[sum]);
+            else 
+                seen[sum] = i;
         }
         return maxLen;
     }
