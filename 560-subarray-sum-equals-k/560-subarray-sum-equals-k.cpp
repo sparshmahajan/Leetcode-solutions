@@ -5,8 +5,9 @@ public:
         unordered_map <int,int> mp;
         vector <int> prefix(n);
         prefix[0] = nums[0];
-        for(i=1;i<n;i++)
-            prefix[i] = nums[i] + prefix[i-1];
+        for(i=1;i<n;i++){
+            prefix[i] = nums[i] + prefix[i-1];            
+        }
         int ans=0;
         for(i=0;i<n;i++){
             if(prefix[i] == k)
