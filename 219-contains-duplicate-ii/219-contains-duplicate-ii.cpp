@@ -9,7 +9,8 @@ public:
         sort(arr.begin(),arr.end());
         for(int i=1;i<n;i++){
             int diff = abs(arr[i].second - arr[i-1].second);
-            if(arr[i-1].first == arr[i].first && diff <= k ) return true;
+            if(arr[i-1].first == arr[i].first && diff <= k ) 
+                return true;
         }
         return false;
     }
