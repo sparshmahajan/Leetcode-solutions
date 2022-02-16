@@ -16,7 +16,6 @@ public:
         if(root==NULL || root->next==NULL){
             return root;
         }
-        
         ListNode* temp=root->next;
         ListNode* tempnext=temp->next;
         
