@@ -11,6 +11,8 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         if(root == NULL)
             return NULL;
         if(root == p or root == q)
