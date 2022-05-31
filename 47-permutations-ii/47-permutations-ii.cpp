@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void func(vector<int>& nums,set <vector<int>>& uniquePermutations,vector <int>& ds, vector <int> &map){
+    void func(vector<int>& nums,set<vector<int>>& uniquePermutations,vector <int>& ds, vector <int> &map){
         if(ds.size() == nums.size()){
             uniquePermutations.insert(ds);
             return;
