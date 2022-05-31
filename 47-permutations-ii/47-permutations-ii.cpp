@@ -1,27 +1,21 @@
 class Solution {
 public:
-    void func(vector<int>& nums,set<vector<int>>& uniquePermutations,vector <int>& ds, vector <int> &map){
-        if(ds.size() == nums.size()){
-            uniquePermutations.insert(ds);
+    void func(int idx,vector<int>& nums,set<vector<int>>& uniquePermutations){
+        if(idx == nums.size()){
+            uniquePermutations.insert(nums);
             return;
         }
-        for(int i=0;i<nums.size();i++){
-            if(map[i] != 1){
-                ds.push_back(nums[i]);
-                map[i] = 1;
-                func(nums,uniquePermutations,ds,map);
-                ds.pop_back();
-                map[i]=0;
-            }
+        for(int i=idx;i<nums.size();i++){
+            swap(nums[idx],nums[i]);
+            func(idx+1,nums,uniquePermutations);
+            swap(nums[idx],nums[i]);
         }
     }
     
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         set <vector<int>> uniquePermutations;
         vector<vector<int>> ans;
-        vector <int> ds;
-        vector <int> map(nums.size(),0);
-        func(nums,uniquePermutations,ds,map);
+        func(0,nums,uniquePermutations);
         for(auto uniquePermutaion : uniquePermutations){
             ans.push_back(uniquePermutaion);
         }
