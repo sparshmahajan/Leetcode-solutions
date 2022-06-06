@@ -35,6 +35,5 @@ public:
         }
         if(headA==headB) return headA;
         return NULL;
-        return NULL;
     }
 };
