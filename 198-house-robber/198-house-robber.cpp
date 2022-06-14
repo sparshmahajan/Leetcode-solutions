@@ -2,18 +2,19 @@ class Solution {
 public:     
     int rob(vector<int>& nums) {
         int n = nums.size();
-        vector <int> dp(n+1);
-        dp[0] = nums[0];
+        int prev = nums[0];
+        int prev2 = 0;
         for(int i=1;i<n;i++){
-            int not_pick = 0 + dp[i-1];
-            int pick;
+            int not_pick = 0 + prev;
+            int pick = nums[i];
             if(i > 1)
-                pick = nums[i] + dp[i-2];
-            else
-                pick = nums[i];
+                pick += prev2;
             
-            dp[i] = max(pick,not_pick);
+            int curr = max(pick,not_pick);
+            prev2 = prev;
+            prev = curr;
+            
         }
-        return dp[n-1];
+        return prev;
     }
 };
