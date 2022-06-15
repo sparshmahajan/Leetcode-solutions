@@ -17,12 +17,11 @@ public:
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size() ;
         int m = triangle[n-1].size();
-        vector <int> last (m,-1);
+        vector <int> last (m,-1),curr(m,-1);
         for(int j=0;j<m;j++)
             last[j] = triangle[n-1][j];
         
         for(int i=n-2;i>=0;i--){
-            vector <int> curr (m,-1);
             for(int j=i;j>=0;j--){
                 int down = last[j] + triangle[i][j];
                 int down_right = last[j+1] + triangle[i][j];
