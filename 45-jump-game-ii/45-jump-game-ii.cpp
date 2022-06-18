@@ -13,7 +13,7 @@ public:
             return dp[idx];
         }
         
-        int ans = INT_MAX-10;
+        int ans = 1e9;
         for(int i=1;i<=nums[idx];i++){
                 ans = min(ans, 1 + helper(nums,idx+i,dp));
         }
