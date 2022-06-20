@@ -1,27 +1,39 @@
 class Solution {
 public:
-    int solve(int idx,int trans,vector<int>& prices,vector<vector<int>>& dp,int n){
-        if(idx >= n)
-            return 0;
-        if(trans < 0)
-            return 0;
+//     int solve(int idx,int trans,vector<int>& prices,vector<vector<int>>& dp,int n){
+//         if(idx >= n)
+//             return 0;
+//         if(trans == 0)
+//             return 0;
         
-        if(dp[idx][trans] != -1)
-           return dp[idx][trans];
+//         if(dp[idx][trans] != -1)
+//            return dp[idx][trans];
         
-        int profit = 0;
-        if(trans % 2 == 0){
-            profit = max(-prices[idx] + solve(idx+1,trans-1,prices,dp,n), solve(idx+1,trans,prices,dp,n));
-        } else{
-           profit = max(prices[idx] + solve(idx+1,trans-1,prices,dp,n),solve(idx+1,trans,prices,dp,n));
-        }
+//         int profit = 0;
+//         if(trans % 2 == 0){
+//             profit = max(-prices[idx] + solve(idx+1,trans-1,prices,dp,n), solve(idx+1,trans,prices,dp,n));
+//         } else{
+//            profit = max(prices[idx] + solve(idx+1,trans-1,prices,dp,n),solve(idx+1,trans,prices,dp,n));
+//         }
         
-        return dp[idx][trans] = profit;
-    }
+//         return dp[idx][trans] = profit;
+//     }
         
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
-        vector<vector<int>> dp(n+1,vector<int>(5,-1));
-        return solve(0,4,prices,dp,n);
+        vector<vector<int>> dp(n+1,vector<int>(5,0));
+        
+        for(int idx=n-1;idx>=0;idx--){
+            for(int trans=1;trans<5;trans++){
+                int profit = 0;
+                if(trans % 2 == 0){
+                    profit = max(-prices[idx] + dp[idx+1][trans-1], dp[idx+1][trans]);
+                } else{
+                     profit = max(prices[idx] + dp[idx+1][trans-1],dp[idx+1][trans]);
+                }
+                dp[idx][trans] = profit;
+            }
+        }
+        return dp[0][4];
     }
 };
