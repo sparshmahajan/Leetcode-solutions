@@ -18,11 +18,12 @@ public:
     
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
-        vector<vector<int>> dp(n+1,vector <int> (2,0));
+        vector <int> after(2,0), curr(2,0);
         for(int idx=n-1;idx>=0;idx--){
-            dp[idx][1] = max(-prices[idx] + dp[idx+1][0], dp[idx+1][1]);    
-            dp[idx][0] = max(prices[idx] + dp[idx+1][1], dp[idx+1][0]);
+            curr[1] = max(-prices[idx] + after[0], after[1]);    
+            curr[0] = max(prices[idx] + after[1], after[0]);
+            after = curr;
         }
-        return dp[0][1];
+        return after[1];
     }
 };
