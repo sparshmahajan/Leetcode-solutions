@@ -1,11 +1,13 @@
-class Solution {
-public:
-    int minPartitions(string n) {
-        int best = 0;
-        for(auto it : n){
-            int num = it - '0';
-            best = max(best,num);
+class Solution
+{
+    public:
+        int minPartitions(string n)
+        {
+            int best = 0;
+            for (auto it: n)
+            {
+                best = max(best, it - '0');
+            }
+            return best;
         }
-        return best;
-    }
 };
