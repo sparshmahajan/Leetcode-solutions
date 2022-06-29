@@ -1,28 +1,46 @@
-class Solution {
-public:
-    int solve(int i,int j,vector<vector<int>>& obstacleGrid,vector<vector<int>>& dp){
-        if(obstacleGrid[i][j] == 1)
-            return 0;
-        
-        if(i == 0 && j == 0)
-            return 1;
-        
-        if(dp[i][j] != -1)
-            return dp[i][j];
-        
-        int move_up = 0;
-        int move_left = 0;
-        if(i>=1)
-            move_left = solve(i-1,j,obstacleGrid,dp);
-        if(j>=1)
-            move_up = solve(i,j-1,obstacleGrid,dp);
-        
-        return dp[i][j] = move_up + move_left;
-    }
-    
-    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-        int m = obstacleGrid.size() , n =  obstacleGrid[0].size();
-        vector<vector<int>> dp(m,vector<int> (n,-1));
-        return solve(m-1,n-1,obstacleGrid,dp);
-    }
+class Solution
+{
+    public:
+        int uniquePathsWithObstacles(vector<vector < int>> &obstacleGrid)
+        {
+            int m = obstacleGrid.size(), n = obstacleGrid[0].size();
+            vector<vector < int>> dp(m, vector<int> (n, 0));
+            dp[0][0] = obstacleGrid[0][0] ? 0 : 1;
+            for (int i = 1; i < n; i++)
+            {
+                if (obstacleGrid[0][i] != 1)
+                    dp[0][i] = dp[0][i - 1];
+                else
+                    dp[0][i] = 0;
+            }
+            for (int i = 1; i < m; i++)
+            {
+                if (obstacleGrid[i][0] != 1)
+                    dp[i][0] = dp[i - 1][0];
+                else
+                    dp[i][0] = 0;
+            }
+
+            for (int i = 1; i < m; i++)
+            {
+                for (int j = 1; j < n; j++)
+                {
+                    if (obstacleGrid[i][j] == 1)
+                        dp[i][j] = 0;
+                    else
+                    {
+                        int move_up = 0;
+                        int move_left = 0;
+                        if (i >= 1)
+                            move_left = dp[i - 1][j];
+                        if (j >= 1)
+                            move_up = dp[i][j - 1];
+
+                        dp[i][j] = move_up + move_left;
+                    }
+                }
+            }
+
+            return dp[m - 1][n - 1];
+        }
 };
