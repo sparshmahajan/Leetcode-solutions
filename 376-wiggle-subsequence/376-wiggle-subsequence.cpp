@@ -1,35 +1,36 @@
 class Solution
 {
     public:
-        int solve(int i, int flag, vector<int> &nums,vector<vector<int>>& dp)
+        int wiggleMaxLength(vector<int> &nums)
         {
-            if (i == nums.size()-1)
-                return 1;
+            int n = nums.size();
+            vector<vector < int>> dp(nums.size(), vector<int> (2, 0));
+            dp[n - 1][0] = dp[n - 1][1] = 1;
 
-            if(dp[i][flag] != -1)
-                return dp[i][flag];
-            
-            int ans = 0;
-            if (flag)
+            for (int i = n - 2; i >= 0; i--)
             {
-                if (nums[i + 1] > nums[i])
-                    ans = max(ans, 1 + solve(i + 1, 0, nums,dp));
-                else
-                    ans = max(ans, solve(i + 1, 1, nums,dp));
+                
+                for (int flag = 0; flag <= 1; flag++)
+                {
+                    int ans = 0;
+                    if (flag)
+                    {
+                        if (nums[i + 1] > nums[i])
+                            ans = max(ans, 1 + dp[i + 1][0]);
+                        else
+                            ans = max(ans, dp[i + 1][1]);
+                    }
+                    else
+                    {
+                        if (nums[i + 1] < nums[i])
+                            ans = max(ans, 1 + dp[i + 1][1]);
+                        else
+                            ans = max(ans, dp[i + 1][0]);
+                    }
+
+                    dp[i][flag] = ans;
+                }
             }
-            else
-            {
-                if (nums[i + 1] < nums[i])
-                    ans = max(ans, 1 + solve(i + 1, 1, nums,dp));
-                else
-                    ans = max(ans, solve(i + 1, 0, nums,dp));
-            }
-            
-            return dp[i][flag] = ans;
+            return max(dp[0][0], dp[0][1]);
         }
-
-    int wiggleMaxLength(vector<int> &nums) {
-        vector<vector<int>> dp(nums.size(),vector<int>(2,-1));
-        return max(solve(0,1,nums,dp),solve(0,0,nums,dp));
-    }
 };
