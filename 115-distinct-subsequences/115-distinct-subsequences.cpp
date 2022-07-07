@@ -4,7 +4,7 @@ class Solution
         int numDistinct(string s, string t)
         {
             int m = s.size(), n = t.size();
-            vector<vector <unsigned long long>> dp(m + 1, vector<unsigned long long> (n + 1, 0));
+            vector<vector <unsigned long>> dp(m + 1, vector<unsigned long> (n + 1, 0));
             for (int i = 0; i <= m; i++)
                 dp[i][0] = 1;
 
@@ -12,7 +12,7 @@ class Solution
             {
                 for (int j = 1; j <= n; j++)
                 {
-                    unsigned long long pick = 0, not_pick = 0;
+                    unsigned long pick = 0, not_pick = 0;
                     
                     if (s[i - 1] == t[j - 1])
                         pick = dp[i - 1][j - 1];
