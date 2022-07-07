@@ -1,28 +1,26 @@
 class Solution
 {
     public:
-        int solve(int i, int j, string &s, string &t,vector<vector < int>> &dp)
+        int numDistinct(string s, string t)
         {
-            if (i == 0)
-                return i == j;
+            int m = s.size(), n = t.size();
+            vector<vector <unsigned long long>> dp(m + 1, vector<unsigned long long> (n + 1, 0));
+            for (int i = 0; i <= m; i++)
+                dp[i][0] = 1;
 
-            if (j == 0)
-                return 1;
-            
-            if(dp[i][j] != -1)
-                return dp[i][j];
+            for (int i = 1; i <= m; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    unsigned long long pick = 0, not_pick = 0;
+                    
+                    if (s[i - 1] == t[j - 1])
+                        pick = dp[i - 1][j - 1];
+                    not_pick = dp[i - 1][j];
 
-            int pick = 0, not_pick = 0;
-            if (s[i - 1] == t[j - 1])
-                pick = solve(i - 1, j - 1, s, t,dp);
-            not_pick = solve(i - 1, j, s, t,dp);
-
-            return dp[i][j] = pick + not_pick;
+                    dp[i][j] = pick + not_pick; 
+                }
+            }
+            return dp[m][n];
         }
-
-    int numDistinct(string s, string t)
-    {
-        vector<vector < int>> dp(s.size() + 1, vector<int> (t.size() + 1, -1));
-        return solve(s.size(), t.size(), s, t,dp);
-    }
 };
