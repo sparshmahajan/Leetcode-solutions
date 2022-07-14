@@ -12,11 +12,11 @@
 class Solution
 {
     public:
-        void preorder(TreeNode *root, int sum, vector<int> &ans)
+        void preorder(TreeNode *root, int sum,int &ans)
         {
             if (!root->left and!root->right)
             {
-                ans.push_back(sum *10 + root->val);
+                ans += sum *10 + root->val;
                 return;
             }
 
@@ -29,9 +29,8 @@ class Solution
 
     int sumNumbers(TreeNode *root)
     {
-        vector<int> ans;
-        preorder(root, 0, ans);
-        int sum = accumulate(ans.begin(), ans.end(), 0);
-        return sum;
+        int ans = 0;
+        preorder(root,0,ans);
+        return ans;
     }
 };
