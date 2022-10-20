@@ -1,7 +1,7 @@
 class Solution {
 public:
     string intToRoman(int num) {
-        map <int,string> roman;
+        unordered_map <int,string> roman;
         roman[1] = "I" , roman[2] = "II" , roman[3] = "III";
         roman[4] = "IV";
         roman[5] = "V", roman[6] = "VI" , roman[7] = "VII" , roman[8] = "VIII";
