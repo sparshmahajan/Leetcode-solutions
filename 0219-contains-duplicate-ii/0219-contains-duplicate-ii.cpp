@@ -7,10 +7,8 @@ public:
             v.push_back({nums[i],i});
         }
         sort(v.begin(),v.end());
-        int diff;
         for(int i=1;i<n;i++){
-            diff = abs(v[i].second - v[i-1].second);
-            if(v[i].first == v[i-1].first and diff <= k)
+            if(v[i].first == v[i-1].first and abs(v[i].second - v[i-1].second) <= k)
                 return true;
         }
         return false;
