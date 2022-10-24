@@ -10,25 +10,22 @@ public:
         return true;
     }
     
-    void helper(int i,int& maxL,vector<string>& arr,string s){
+    int helper(int i,int maxL,vector<string>& arr,string s){
         if(!is_unique(s))
-            return;
+            return INT_MIN;
         
         if(i >= arr.size()){
             if(maxL < s.size())
-                maxL = s.size();
-            return;
+                return s.size();
+            return maxL;
         }
         
-        helper(i+1,maxL,arr,s);
-        helper(i+1,maxL,arr,s + arr[i]);
+        maxL = max(helper(i+1,maxL,arr,s), helper(i+1,maxL,arr,s + arr[i]));
         
-        return;
+        return maxL;
     }
     
     int maxLength(vector<string>& arr) {
-        int maxL = 0;
-        helper(0,maxL,arr,"");
-        return maxL;
+        return helper(0,0,arr,"");
     }
 };
