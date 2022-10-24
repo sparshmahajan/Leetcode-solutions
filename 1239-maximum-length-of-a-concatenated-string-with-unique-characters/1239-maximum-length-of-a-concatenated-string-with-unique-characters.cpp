@@ -15,9 +15,8 @@ public:
             return INT_MIN;
         
         if(i >= arr.size()){
-            if(maxL < s.size())
-                return s.size();
-            return maxL;
+            int size = s.size();
+           return max(maxL, size);
         }
         
         maxL = max(helper(i+1,maxL,arr,s), helper(i+1,maxL,arr,s + arr[i]));
