@@ -25,15 +25,14 @@ struct Job
 
 class Solution 
 {
-    bool static myCompare(const Job a, const Job b){
-        return (a.profit > b.profit);
-    }
     public:
     //Function to find the maximum profit and the number of jobs done.
     vector<int> JobScheduling(Job arr[], int n) 
     { 
         // your code here
-        sort(arr,arr+n,myCompare);
+        sort(arr,arr+n,[](auto &a, auto &b){
+            return a.profit>b.profit;
+        });
         int maxi = arr[0].dead;
 
         //find max deadLine
